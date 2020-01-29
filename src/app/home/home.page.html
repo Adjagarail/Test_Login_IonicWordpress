@@ -1,0 +1,47 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Create Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked"> UserName <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" formControlName="username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked"> Password <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" [disabled]="!login_form.valid" type="submit" class="ion-no-margin">Create account</ion-button>
+    </div>
+    <p class="error-message" *ngIf="error_message"> {{ error_message }}</p>
+  </form>
+</ion-content>
+
+<!-- <ion-content class="ion-padding form-content">
+  <form class="form" [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
+    <ion-label class="title">Welcome back</ion-label>
+    <p class="skip-login"><a (click)="skipLogin()">Click here to skip login!</a></p>
+    <p class="skip-login"><a (click)="goToRegister()">Click here to Register!</a></p>
+    <ion-item>
+      <ion-label color="primary">Username</ion-label>
+      <ion-input type="text" formControlName="username" class="form-controll" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <p class="error-message" *ngIf="error_message">{{error_message}}</p>
+    <button ion-button full class="login-button" [disabled]="!login_form.valid" type="submit">Login</button>
+  </form>
+</ion-content> -->
